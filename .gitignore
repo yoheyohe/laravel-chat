@@ -1,0 +1,8 @@
+/node_modules
+/public/css/app.css
+/public/js/app.js
+/public/mix-manifest.json
+/vendor
+.env
+.php_cs.cache
+.phpunit.result.cache
