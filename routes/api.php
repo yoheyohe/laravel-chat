@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/chat',function(){
+	return \App\Models\TestMessage::all();
+});
+
+use App\Events\AddChat;
+Route::post('/chat',function(){
+	$chat = \App\Models\TestMessage::create(request()->all());
+    event((new AddChat($chat))->dontBroadcastToCurrentUser());
+	return $chat;
+});
